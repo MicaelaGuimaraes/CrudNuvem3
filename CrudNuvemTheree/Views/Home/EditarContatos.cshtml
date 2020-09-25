@@ -1,0 +1,64 @@
+﻿
+@model CrudNuvemTheree.Models.ListaContatosViewModel
+
+@section style{
+    <style>
+        .has-erro {
+            border-color: red;
+        }
+    </style>
+}
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+    <script>
+        (function ($) {
+            $(function () {
+                $("#TelefoneContato").mask("(99) 99999-9999", { placeholder: "(__) _____-____" });
+            });
+        })(jQuery);
+    </script>
+}
+
+<form id="Form" method="post" action="/Home/EditarContatos">
+    @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @id = "Id", @name = "Id" } })
+    @Html.HiddenFor(model => model.Status, new { htmlAttributes = new { @id = "Status", @name = "Status" } })
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <label>Editar dados do Contatos</label>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                    <label>Nome: <span style="color: red">*</span></label>
+                                    @Html.EditorFor(model => model.NomeContato, new { htmlAttributes = new { @class = "form-control validar", @placeholder = "Nome do contato...", @id = "NomeContato", @name = "NomeContato" } })
+                                </div>
+                                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                    <label>Email: <span style="color: red">*</span></label>
+                                    @Html.EditorFor(model => model.EmailContato, new { htmlAttributes = new { @class = "form-control validar", @placeholder = "Email do contato...", @id = "EmailContato", @name = "EmailContato" } })
+                                </div>
+                                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                    <label>Telefone: <span style="color: red">*</span></label>
+                                    @Html.EditorFor(model => model.TelefoneContato, new { htmlAttributes = new { @class = "form-control validar", @placeholder = "Telefone do contato...", @id = "TelefoneContato", @name = "TelefoneContato" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <button class="btn btn-primary" id="BtnEditar" name="BtnEditar" type="button">Salvar</button>
+                                    <a role="button" class="btn btn-secondary" id="BtnVoltar" name="BtnVoltar">Voltar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

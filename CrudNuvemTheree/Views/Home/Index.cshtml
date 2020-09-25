@@ -1,0 +1,52 @@
+﻿
+
+@model List<CrudNuvemTheree.Models.ListaContatosViewModel>
+
+@section scripts{
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            BuscarContatos();
+        });
+    </script>
+}
+
+<div class="container-fluid">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                <h5>
+                                    Lista de contatos
+
+                                    <button class="btn btn-danger btn-sm" id="btnDeletar" name="btnDeletar" onclick="DeletarContatos()">
+                                        <span contagem-itens></span>
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                </h5>
+
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="text-align: end">
+                                <a role="button" class="btn btn-primary" id="btnCadastrar" name="btnCadastrar" href="~/Home/CadastrarContatos">Adicionar Contato</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    <div class="table-responsive" id="listaTipos">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
